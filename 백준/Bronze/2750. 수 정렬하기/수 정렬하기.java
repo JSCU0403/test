@@ -1,5 +1,5 @@
 import java.io.*;
-import java.util.StringTokenizer;
+import java.util.Arrays;
 
 public class Main {
     public static void main(String[] args) throws IOException {
@@ -10,22 +10,13 @@ public class Main {
         int[] arr = new int[N];
 
         for(int i=0;i<N;i++){
-            int A = Integer.parseInt(br.readLine());
-            arr[i] = A;
+            arr[i] = Integer.parseInt(br.readLine());
         }
 
-        for(int i=0;i<N-1;i++){
-            for(int j=i+1;j<N;j++) {
-                if (arr[i] > arr[j]) {
-                    int temp = arr[i];
-                    arr[i] = arr[j];
-                    arr[j] = temp;
-                }
-            }
-        }
-
-        for(int i=0;i<N;i++){
-            bw.write(arr[i]+"");
+        Arrays.sort(arr);
+        
+        for(int val : arr){
+            bw.write(val+"");
             bw.newLine();
         }
 
